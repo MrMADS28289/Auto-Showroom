@@ -9,6 +9,8 @@ module.exports = {
         'login-style': "url('/src/images/car/car4.jpg')",
         'Info-style': "url('/src/images/car/car4.jpg')",
         'team-bg': "url('/src/images/car/download.jpg')",
+        'purpose-bg1': "url('/src/images/car/car5.png')",
+        'purpose-bg2': "url('/src/images/car/car6.png')",
       }
     },
   },

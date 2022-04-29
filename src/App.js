@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Inventory from './Components/Inventory/Inventory';
 import Login from './Components/Login/Login';
 import Regester from './Components/Regester/Regester';
+import Footer from './Components/Shared/Footer/Footer';
 import NavBar from './Components/Shared/NavBar/NavBar';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/regester' element={<Regester />}></Route>
         <Route path='/login' element={<Login />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }
