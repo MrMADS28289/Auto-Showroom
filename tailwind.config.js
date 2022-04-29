@@ -10,7 +10,7 @@ module.exports = {
         'Info-style': "url('/src/images/car/car4.jpg')",
         'team-bg': "url('/src/images/car/download.jpg')",
         'purpose-bg1': "url('/src/images/car/car5.png')",
-        'purpose-bg2': "url('/src/images/car/car6.png')",
+        'footer-bg': "url('/src/images/footer-bg.jpg')",
       }
     },
   },
