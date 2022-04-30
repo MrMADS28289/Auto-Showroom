@@ -10,22 +10,32 @@ import Footer from './Components/Shared/Footer/Footer';
 import NavBar from './Components/Shared/NavBar/NavBar';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import ManageInventory from './Components/ManageInventory/ManageInventory';
+import InventoryItems from './Components/ManageInventory/InventoryItems/InventoryItems';
+import MyInventory from './Components/ManageInventory/MyInventory/MyInventory';
+import AddItems from './Components/ManageInventory/AddItems/AddItems';
 
 function App() {
   return (
     <div>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/inventory' element={
           <RequireAuth>
             <Inventory />
           </RequireAuth>
-        }></Route>
-        <Route path='/blogs' element={<Blogs />}></Route>
-        <Route path='/regester' element={<Regester />}></Route>
-        <Route path='/login' element={<Login />}></Route>
+        }>
+        </Route>
+        <Route path='/manageInventory' element={<ManageInventory />} >
+          <Route path='mangeItems' element={<InventoryItems />} />
+          <Route path='myinventory' element={<MyInventory />} />
+          <Route path='addItem' element={<AddItems />} />
+        </Route>
+        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/regester' element={<Regester />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
       <Footer />
       <ToastContainer />
