@@ -41,7 +41,6 @@ const Login = () => {
 
     }
 
-
     return (
         <div className='bg-login-style pb-10'>
             <h3 className='text-gray-500 pt-5 text-center'>New to Auto Showroom?</h3>

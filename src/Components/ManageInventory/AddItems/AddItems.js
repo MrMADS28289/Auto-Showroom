@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const AddItems = () => {
 
@@ -25,6 +26,8 @@ const AddItems = () => {
             .then((response) => response.json())
             .then((json) => console.log(json));
 
+        e.target.reset();
+        toast.success('Item Added')
     }
 
     return (

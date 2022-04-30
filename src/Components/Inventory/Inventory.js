@@ -1,9 +1,25 @@
 import React from 'react';
+import useCar from '../Hook/useCar/useCar';
+import Car from './Car/Car';
 
 const Inventory = () => {
+
+    const [cars] = useCar();
+
     return (
-        <div>
-            this is inventory
+        <div className='flex flex-col bg-gray-300 justify-center items-center'>
+            <div className='flex bg-login-style w-[100vw] py-10 items-center justify-center'>
+                <h1 className='font-bold  flex justify-center items-center text-[#FF5400] mx-4 text-3xl'>INVENTORY</h1>
+                <div>
+                    <div className='border-t-2 border-[#FF5400] w-16'></div>
+                    <div className='border-b-2 border-[#FF5400] w-8 mt-3'></div>
+                </div>
+            </div>
+            <div className='grid md:grid-cols-2 justify-center'>
+                {
+                    cars.map(car => <Car key={car._id} car={car} />)
+                }
+            </div>
         </div>
     );
 };
