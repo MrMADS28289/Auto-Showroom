@@ -1,11 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import google from '../../images/icon/google.png';
 import facebook from '../../images/icon/facebook.png';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
+import Loading from '../Shared/Loading/Loading';
 
 const Regester = () => {
 
     const navigate = useNavigate();
+    const [error3, setError3] = useState('');
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, user1, loading1, error1,] = useCreateUserWithEmailAndPassword(auth);
+
+    if (error || error1) {
+        toast.error(error?.message || error1?.message);
+    }
+    if (loading || loading1) {
+        return <Loading />
+    }
+    if (user?.user?.email || user1?.user?.email) {
+        toast.success('Welcome To Aouto Showroom');
+        navigate('/')
+    }
+
+    const handleCreateUserWithEmailPassword = (e) => {
+
+        e.preventDefault();
+
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const confirmPassword = e.target.confirmPassword.value;
+
+        if (password.length < 6) {
+            return setError3('Password must be 6 carecter.');
+        }
+        if (password !== confirmPassword) {
+            return setError3('Password not match.');
+        }
+        else {
+            setError3('');
+            createUserWithEmailAndPassword(email, password);
+            e.target.reset();
+        }
+
+    }
 
     return (
         <div>
@@ -21,15 +62,16 @@ const Regester = () => {
                     </div>
                 </div>
                 <div className='w-2/3 mx-auto border-2 border-[#FF5400] p-11 rounded-md'>
-                    <form className='flex flex-col'>
+                    <form onSubmit={handleCreateUserWithEmailPassword} className='flex flex-col'>
                         <label className='text-[#FF5400]' htmlFor="Name">Name</label>
-                        <input className='border-0 border-b-2 bg-transparent border-[#FF5400] my-4' type="text" name='name' />
+                        <input className='border-0 border-b-2 bg-transparent border-[#FF5400] my-4' type="text" name='name' required />
                         <label className='text-[#FF5400]' htmlFor="Email">Email</label>
-                        <input className='border-0 border-b-2 bg-transparent border-[#FF5400] my-4' type="email" name='email' />
+                        <input className='border-0 border-b-2 bg-transparent border-[#FF5400] my-4' type="email" name='email' required />
                         <label className='text-[#FF5400]' htmlFor="Password">Password</label>
-                        <input type='password' name='password' className='border-b-2 bg-transparent border-[#FF5400] my-4' />
+                        <input type='password' name='password' className='border-b-2 bg-transparent border-[#FF5400] my-4' required />
                         <label className='text-[#FF5400]' htmlFor="Confirm Password">Confirm Password</label>
-                        <input type='text' name='confirm-password' className='border-b-2 bg-transparent border-[#FF5400] my-4' />
+                        <input type='password' name='confirmPassword' className='border-b-2 bg-transparent border-[#FF5400] mb-10 my-4' required />
+                        <p className='mb-6 text-red-600'>{error3}</p>
                         <input className='bg-[#FF5400] text-white w-2/3 mx-auto mb-6 p-2 px-5 rounded-md cursor-pointer' type="submit" value="Regester" />
                     </form>
                     <div className='flex justify-center items-center mt-6 text-[#FF5400]'>
@@ -38,7 +80,7 @@ const Regester = () => {
                         <div className='border-b-2 border-[#FF5400] w-2/6 ml-2'></div>
                     </div>
                     <div className='mt-12'>
-                        <button className='flex items-center w-2/3 mx-auto my-5 bg-white text-[#FF5400] rounded-md p-3'><img className='h-8' src={google} alt="" /><p className='text-xl text-[#FF5400] ml-3'>Regester With Google.</p></button>
+                        <button onClick={() => signInWithGoogle()} className='flex items-center w-2/3 mx-auto my-5 bg-white text-[#FF5400] rounded-md p-3'><img className='h-8' src={google} alt="" /><p className='text-xl text-[#FF5400] ml-3'>Regester With Google.</p></button>
                         <button className='flex items-center my-5 bg-[#0034C2] w-2/3 mx-auto rounded-md p-3'><img className='h-8' src={facebook} alt="" /><p className='text-xl text-white ml-3'>Regester With Facebook.</p></button>
                     </div>
                 </div>

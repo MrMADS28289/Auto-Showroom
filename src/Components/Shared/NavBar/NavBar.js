@@ -1,4 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
 // import { ActiveLink } from 'react-router-dom';
 import logo from '../../../images/logo/logo1.png'
 import ActiveLink from './ActiveLink';
@@ -6,6 +10,12 @@ import ActiveLink from './ActiveLink';
 const NavBar = () => {
 
     const [navbarOpen, setNavbarOpen] = React.useState(false);
+    const [user] = useAuthState(auth);
+
+    const handleLogout = () => {
+        signOut(auth)
+        toast.success('Logout success')
+    }
 
     return (
         <div className='sticky top-0'>
@@ -57,11 +67,15 @@ const NavBar = () => {
                                 </ActiveLink>
                             </li>
                             <li className="nav-item">
-                                <ActiveLink
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/login">
-                                    LOGIN/Regester
-                                </ActiveLink>
+                                {
+                                    user ? <button onClick={handleLogout} className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Logout</button>
+                                        :
+                                        <ActiveLink
+                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                            to="/login">
+                                            LOGIN/Regester
+                                        </ActiveLink>
+                                }
                             </li>
                         </ul>
                     </div>

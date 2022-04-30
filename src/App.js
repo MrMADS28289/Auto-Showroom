@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Blogs from './Components/Blogs/Blogs';
 import Home from './Components/Home/Home';
@@ -7,6 +8,7 @@ import Login from './Components/Login/Login';
 import Regester from './Components/Regester/Regester';
 import Footer from './Components/Shared/Footer/Footer';
 import NavBar from './Components/Shared/NavBar/NavBar';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }
