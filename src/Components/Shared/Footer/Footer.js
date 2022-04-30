@@ -7,6 +7,9 @@ import twetter from '../../../images/icon/twetter.png';
 import linkedin from '../../../images/icon/linkedin.png';
 
 const Footer = () => {
+
+    const date = new Date().getFullYear();
+
     return (
         <footer>
             <section className='bg-footer-bg text-white p-6 grid md:grid-cols-4 gap-3 relative'>
@@ -61,7 +64,7 @@ const Footer = () => {
             <section className='bg-[#151515] grid md:grid-cols-2 p-6'>
                 <div className='m-6'>
                     <img src={logo} alt="" />
-                    <h3 className='text-white mt-4'>All Rights Reserved. &copy; by <span className='text-[#FF5400] cursor-pointer'>AUTO SHOWROOM</span></h3>
+                    <h3 className='text-white mt-4'>All Rights Reserved {date}. &copy; by <span className='text-[#FF5400] cursor-pointer'>AUTO SHOWROOM</span></h3>
                 </div>
                 <div className='m-6'>
                     <img className='mb-3' src={payment} alt="" />
