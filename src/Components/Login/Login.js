@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../images/icon/google.png';
 import facebook from '../../images/icon/facebook.png';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading/Loading';
@@ -11,19 +11,21 @@ import Loading from '../Shared/Loading/Loading';
 const Login = () => {
 
     const navigate = useNavigate();
-    const [error2, setError3] = useState('');
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithEmailAndPassword, user1, loading1, error1,] = useSignInWithEmailAndPassword(auth);
+    const [signInWithFacebook, user2, loading2, error2] = useSignInWithFacebook(auth);
 
-    if (error || error1) {
-        toast.error(error?.message || error1?.message);
+    if (error || error1 || error2) {
+        toast.error(error?.message || error1?.message || error2?.message);
     }
-    if (loading || loading1) {
+    if (loading || loading1 || loading2) {
         return <Loading />
     }
-    if (user?.user?.email || user1?.user?.email) {
+    if (user?.user?.email || user1?.user?.email || user2?.user?.email) {
         toast.success('Welcome To Aouto Showroom');
-        navigate('/')
+        navigate(from, { replace: true });
     }
 
     const handleLoginWithEmailPassword = (e) => {
@@ -59,7 +61,7 @@ const Login = () => {
                     <label className='text-[#FF5400]' htmlFor="Password">Password</label>
                     <input className='border-b-2 bg-transparent border-[#FF5400] my-4' name='password' type='password' />
                     <p className='my-6 text-red-800'>{error2}</p>
-                    <input className='bg-[#FF5400] text-white w-2/3 mx-auto mb-6 p-2 px-5 rounded-md cursor-pointer' type="submit" value="Login" />
+                    <input className='bg-[#FF5400] hover:bg-[#FF4400] text-white w-2/3 mx-auto mb-6 p-2 px-5 rounded-md cursor-pointer' type="submit" value="Login" />
                 </form>
                 <Link className='text-[#FF5400] my-6' to='/'>Lost your password?</Link>
                 <div className='flex justify-center items-center mt-6 text-[#FF5400]'>
@@ -68,8 +70,8 @@ const Login = () => {
                     <div className='border-b-2 border-[#FF5400] w-2/6 ml-2'></div>
                 </div>
                 <div className='mt-12'>
-                    <button onClick={() => signInWithGoogle()} className='flex items-center w-2/3 mx-auto my-5 bg-white hover:bg-gray-200 text-[#FF5400] rounded-md p-3'><img className='h-8' src={google} alt="" /><p className='text-xl text-[#FF5400] ml-3'>Login With Google.</p></button>
-                    <button className='flex items-center my-5 bg-[#0034C2] w-2/3 mx-auto rounded-md p-3'><img className='h-8' src={facebook} alt="" /><p className='text-xl text-white ml-3'>Login With Facebook.</p></button>
+                    <button onClick={() => signInWithGoogle()} className='flex items-center w-2/3 mx-auto my-5 bg-white hover:bg-gray-300 text-[#FF5400] rounded-md p-3'><img className='h-8' src={google} alt="" /><p className='text-xl text-[#FF5400] ml-3'>Login With Google.</p></button>
+                    <button onClick={() => signInWithFacebook()} className='flex items-center my-5 bg-[#0034C2] hover:bg-blue-900 w-2/3 mx-auto rounded-md p-3'><img className='h-8' src={facebook} alt="" /><p className='text-xl text-white ml-3'>Login With Facebook.</p></button>
                 </div>
             </div>
         </div>
