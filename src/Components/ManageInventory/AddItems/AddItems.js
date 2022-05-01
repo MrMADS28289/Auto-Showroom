@@ -16,7 +16,7 @@ const AddItems = () => {
 
         const car = { name, suplier, price, quantity, description, image };
 
-        fetch('http://localhost:5000/inventory', {
+        fetch('https://auto-shoroom.herokuapp.com/inventory', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

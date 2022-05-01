@@ -10,7 +10,7 @@ const ManageCar = () => {
     const [refresh, setRefresh] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${inventoryId}`)
+        fetch(`https://auto-shoroom.herokuapp.com/cars/${inventoryId}`)
             .then(res => res.json())
             .then(data => setCar(data));
     }, [refresh])
@@ -20,7 +20,7 @@ const ManageCar = () => {
         const procced = window.confirm('Are you Sure?');
 
         if (procced) {
-            fetch(`http://localhost:5000/cars/${id}`, {
+            fetch(`https://auto-shoroom.herokuapp.com/cars/${id}`, {
                 method: 'DELETE',
             })
                 .then((response) => response.json())

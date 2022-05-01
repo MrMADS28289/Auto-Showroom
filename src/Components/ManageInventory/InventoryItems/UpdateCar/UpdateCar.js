@@ -9,7 +9,7 @@ const UpdateCar = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${id}`)
+        fetch(`https://auto-shoroom.herokuapp.com/cars/${id}`)
             .then(res => res.json())
             .then(data => setCar(data))
     }, [id])
@@ -27,7 +27,7 @@ const UpdateCar = () => {
 
         const updatedCar = { name, suplier, price, quantity, description, image };
 
-        fetch(`http://localhost:5000/cars/${id}`, {
+        fetch(`https://auto-shoroom.herokuapp.com/cars/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json',

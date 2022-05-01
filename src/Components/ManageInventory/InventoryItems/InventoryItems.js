@@ -9,7 +9,7 @@ const InventoryItems = () => {
     const [refresh, setRefresh] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/cars')
+        fetch('https://auto-shoroom.herokuapp.com/cars')
             .then(res => res.json())
             .then(data => setCars(data));
     }, [refresh])
@@ -19,7 +19,7 @@ const InventoryItems = () => {
         const procced = window.confirm('Are you Sure?');
 
         if (procced) {
-            fetch(`http://localhost:5000/cars/${id}`, {
+            fetch(`https://auto-shoroom.herokuapp.com/cars/${id}`, {
                 method: 'DELETE',
             })
                 .then((response) => response.json())
