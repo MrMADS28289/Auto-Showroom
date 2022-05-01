@@ -42,6 +42,7 @@ const UpdateCar = () => {
         navigate(-1)
     }
 
+
     return (
         <div className='w-3/5 mx-auto my-6'>
             <h1 className='text-2xl text-center'>Edit Item</h1>

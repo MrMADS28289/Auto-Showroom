@@ -1,11 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useCar from '../../Hook/useCar/useCar';
 
 const InventoryItems = () => {
 
     const [cars] = useCar();
     const navigate = useNavigate();
+
+    const handleDeleteCar = (id) => {
+
+        const procced = window.confirm('Are you Sure?');
+
+        if (procced) {
+            fetch(`http://localhost:5000/cars/${id}`, {
+                method: 'DELETE',
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+            toast.success('Delete seccess')
+        }
+
+    }
 
     return (
         <div className="max-w-7xl mx-auto mt-10">
@@ -52,7 +68,7 @@ const InventoryItems = () => {
                                                     <button onClick={() => navigate(`/manageInventory/${car._id}`)} className="text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                                                 </td>
                                                 <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                    <button className="text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                                                    <button onClick={() => handleDeleteCar(car._id)} className="text-red-600 dark:text-red-500 hover:underline">Delete</button>
                                                 </td>
                                             </tr>
                                         })
