@@ -61,7 +61,7 @@ const Regester = () => {
                         <div className='border-b-2 border-[#FF5400] w-8 mt-3'></div>
                     </div>
                 </div>
-                <div className='w-2/3 mx-auto border-2 border-[#FF5400] p-11 rounded-md'>
+                <div className='w-2/3 mx-auto bg-gray-900 opacity-80 border-2 border-[#FF5400] p-11 rounded-md'>
                     <form onSubmit={handleCreateUserWithEmailPassword} className='flex flex-col'>
                         <label className='text-[#FF5400]' htmlFor="Name">Name</label>
                         <input className='border-0 border-b-2 bg-transparent border-[#FF5400] my-4' type="text" name='name' required />
