@@ -3,7 +3,6 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
-// import { ActiveLink } from 'react-router-dom';
 import logo from '../../../images/logo/logo1.png'
 import ActiveLink from './ActiveLink';
 
@@ -72,7 +71,7 @@ const NavBar = () => {
                                 <ActiveLink
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     to="/blogs">
-                                    BLOGS
+                                    BLOG
                                 </ActiveLink>
                             </li>
                             <li className="nav-item">
