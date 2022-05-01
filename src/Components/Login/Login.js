@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../images/icon/google.png';
 import facebook from '../../images/icon/facebook.png';
