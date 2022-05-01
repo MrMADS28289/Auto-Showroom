@@ -24,7 +24,7 @@ const ManageInventory = () => {
                     </li>
                 </ul>
             </div>
-            <div className='w-2/4 mx-auto'>
+            <div className='w-11/12 mx-auto'>
                 <Outlet />
             </div>
         </div>

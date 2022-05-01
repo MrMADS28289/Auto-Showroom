@@ -28,6 +28,7 @@ const ManageCar = () => {
             toast.success('Delete seccess')
         }
         navigate(-1)
+        setRefresh(id)
     }
 
     const handleEditCar = (id) => {

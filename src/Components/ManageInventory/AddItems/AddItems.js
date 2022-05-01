@@ -1,7 +1,11 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
 
 const AddItems = () => {
+
+    const [user] = useAuthState(auth);
 
     const handlePostInventory = (e) => {
 
@@ -13,8 +17,9 @@ const AddItems = () => {
         const quantity = e.target.quantity.value;
         const description = e.target.description.value;
         const image = e.target.image.value;
+        const userEmail = user.email;
 
-        const car = { name, suplier, price, quantity, description, image };
+        const car = { name, suplier, price, quantity, description, image, userEmail };
 
         fetch('https://auto-shoroom.herokuapp.com/inventory', {
             method: 'POST',
@@ -27,11 +32,11 @@ const AddItems = () => {
             .then((json) => console.log(json));
 
         e.target.reset();
-        toast.success('Item Added')
+        toast.success('Item Added');
     }
 
     return (
-        <div>
+        <div className='w-9/12 mx-auto'>
             <form onSubmit={handlePostInventory} className='flex flex-col bg-[#151515] mt-10 p-6 rounded-2xl'>
 
                 <label className='text-white' htmlFor="Nme">Name</label>
