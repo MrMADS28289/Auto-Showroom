@@ -15,6 +15,7 @@ import InventoryItems from './Components/ManageInventory/InventoryItems/Inventor
 import MyInventory from './Components/ManageInventory/MyInventory/MyInventory';
 import AddItems from './Components/ManageInventory/AddItems/AddItems';
 import UpdateCar from './Components/ManageInventory/InventoryItems/UpdateCar/UpdateCar';
+import ManageCar from './Components/Inventory/ManageCar/ManageCar';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           </RequireAuth>
         }>
         </Route>
+        <Route path='/inventory/:inventoryId' element={<ManageCar />} />
         <Route path='/manageInventory' element={<ManageInventory />} >
           <Route path='mangeItems' element={<InventoryItems />} />
           <Route path='myinventory' element={<MyInventory />} />

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useCar from '../../Hook/useCar/useCar';
 
 const InventoryItems = () => {
 
-    const [cars] = useCar();
+    const [cars, setCars] = useState([]);
     const navigate = useNavigate();
+    const [refresh, setRefresh] = useState('');
+
+    useEffect(() => {
+        fetch('http://localhost:5000/cars')
+            .then(res => res.json())
+            .then(data => setCars(data));
+    }, [refresh])
 
     const handleDeleteCar = (id) => {
 
@@ -20,7 +26,7 @@ const InventoryItems = () => {
                 .then((json) => console.log(json));
             toast.success('Delete seccess')
         }
-
+        setRefresh(id)
     }
 
     return (
