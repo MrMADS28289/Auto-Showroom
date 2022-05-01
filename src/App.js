@@ -16,6 +16,7 @@ import MyInventory from './Components/ManageInventory/MyInventory/MyInventory';
 import AddItems from './Components/ManageInventory/AddItems/AddItems';
 import UpdateCar from './Components/ManageInventory/InventoryItems/UpdateCar/UpdateCar';
 import ManageCar from './Components/Inventory/ManageCar/ManageCar';
+import NotFound from './Components/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/regester' element={<Regester />} />
         <Route path='/login' element={<Login />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
       <ToastContainer />
