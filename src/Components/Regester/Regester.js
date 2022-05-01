@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import google from '../../images/icon/google.png';
 import facebook from '../../images/icon/facebook.png';
-import { useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading/Loading';
@@ -14,11 +14,12 @@ const Regester = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [createUserWithEmailAndPassword, user1, loading1, error1,] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithFacebook, user2, loading2, error2] = useSignInWithFacebook(auth);
+    const [sendEmailVerification, sending4, error4] = useSendEmailVerification(auth);
 
     if (error || error1 || error2) {
-        toast.error(error?.message || error1?.message || error2?.message);
+        toast.error(error?.message || error1?.message || error2?.message || error4?.message);
     }
-    if (loading || loading1 || loading2) {
+    if (loading || loading1 || loading2 || sending4) {
         return <Loading />
     }
     if (user?.user?.email || user1?.user?.email || user2?.user?.email) {
@@ -43,6 +44,7 @@ const Regester = () => {
         else {
             setError3('');
             createUserWithEmailAndPassword(email, password);
+            sendEmailVerification();
             e.target.reset();
         }
 

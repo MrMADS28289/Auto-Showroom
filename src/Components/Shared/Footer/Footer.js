@@ -55,10 +55,10 @@ const Footer = () => {
                     <input type="email" name="email" id="" />
                     <input className='bg-[#FF5400] mt-2' type="submit" value='Send' />
                 </div>
-                <div className='bg-[#FF5400] absolute w-2/5 bottom-[-30px] flex justify-center items-center rounded-full p-2 ml-6'>
-                    <img className='h-11 rounded-full mr-6 cursor-pointer hover:translate-y-1' src={facebook} alt="" />
-                    <img className='h-11 rounded-full mr-6 cursor-pointer hover:translate-y-1' src={twetter} alt="" />
-                    <img className='h-11 rounded-full mr-6 cursor-pointer hover:translate-y-1' src={linkedin} alt="" />
+                <div className='bg-[#FF5400] border-4  absolute w-2/5 bottom-[-30px] flex justify-center items-center rounded-full p-2 ml-6'>
+                    <img className='h-5 md:h-11 rounded-full mr-6 cursor-pointer hover:translate-y-1' src={facebook} alt="" />
+                    <img className='h-5 md:h-11 rounded-full mr-6 cursor-pointer hover:translate-y-1' src={twetter} alt="" />
+                    <img className='h-5 md:h-11 rounded-full mr-6 cursor-pointer hover:translate-y-1' src={linkedin} alt="" />
                 </div>
             </section>
             <section className='bg-[#151515] grid md:grid-cols-2 p-6'>

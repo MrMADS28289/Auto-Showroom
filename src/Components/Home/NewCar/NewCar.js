@@ -30,7 +30,7 @@ const NewCar = () => {
                     {
                         newCars.map((car) => {
                             return (
-                                <motion.div className='w-100 h-100 mx-5 cursor-pointer pointer-events-none'>
+                                <motion.div key={car._id} className='w-100 h-100 mx-5 cursor-pointer pointer-events-none'>
                                     <div className='w-[300px] bg-white mb-3  ml-10 md:ml-0'>
                                         <img className='w-[300px] h-[200px] hover:opacity-70 hover:translate-x-6' src={car.img} alt="" />
                                         <div className='p-4'>
