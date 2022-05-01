@@ -14,6 +14,7 @@ import ManageInventory from './Components/ManageInventory/ManageInventory';
 import InventoryItems from './Components/ManageInventory/InventoryItems/InventoryItems';
 import MyInventory from './Components/ManageInventory/MyInventory/MyInventory';
 import AddItems from './Components/ManageInventory/AddItems/AddItems';
+import UpdateCar from './Components/ManageInventory/InventoryItems/UpdateCar/UpdateCar';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='myinventory' element={<MyInventory />} />
           <Route path='addItem' element={<AddItems />} />
         </Route>
+        <Route path='/manageInventory/:id' element={<UpdateCar />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/regester' element={<Regester />} />
         <Route path='/login' element={<Login />} />
