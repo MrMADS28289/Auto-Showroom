@@ -81,7 +81,18 @@ const NavBar = () => {
                                         <ActiveLink
                                             className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                             to="/login">
-                                            LOGIN/Regester
+                                            LOGIN
+                                        </ActiveLink>
+                                }
+                            </li>
+                            <li className="nav-item">
+                                {
+                                    user ? ''
+                                        :
+                                        <ActiveLink
+                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                            to="/regester">
+                                            REGESTER
                                         </ActiveLink>
                                 }
                             </li>
