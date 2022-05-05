@@ -19,6 +19,7 @@ const Banner = () => {
                             <p>MSRP <span className='text-xl text-orange-500'>$221,580*</span></p>
                         </div>
                         <p className='p-6'>Mercedes-Benz SLS AMG Coupé Electric Drive. · Drive Four electric motors · Fuel Battery · Output 552 kw / 750 PS · Top speed 250 km/h / 155 mph · Range 250 km / 155 ...</p>
+                        <button className='w-1/3 bg-[#FF5400] hover:bg-[#FF4400] text-white rounded-md py-2'>LEARN MORE</button>
                     </div>
                 </div>
                 <div>
@@ -29,6 +30,7 @@ const Banner = () => {
                             <p>MSRP FROM <span className='text-xl text-orange-500'>$440,870*</span></p>
                         </div>
                         <p className='p-6'>2016 LAMBORGHINI IS 200T FSPORT Electric Drive. · Drive Four electric motors · Fuel Battery · Output 552 kw / 750 PS · Top speed 250 km/h / 155 mph · Range 250 km / 155 ...</p>
+                        <button className='w-1/3 bg-[#FF5400] hover:bg-[#FF4400] text-white rounded-md py-2'>LEARN MORE</button>
                     </div>
                 </div>
                 <div>
@@ -39,6 +41,7 @@ const Banner = () => {
                             <p>MSRP FROM <span className='text-xl text-orange-500'>$440,870*</span></p>
                         </div>
                         <p className='p-6'>2016 LAMBORGHINI IS 200T FSPORT Electric Drive. · Drive Four electric motors · Fuel Battery · Output 552 kw / 750 PS · Top speed 250 km/h / 155 mph · Range 250 km / 155 ...</p>
+                        <button className='w-1/3 bg-[#FF5400] hover:bg-[#FF4400] text-white rounded-md py-2'>LEARN MORE</button>
                     </div>
                 </div>
                 <div>
@@ -49,6 +52,7 @@ const Banner = () => {
                             <p>MSRP FROM <span className='text-xl text-orange-500'>$440,870*</span></p>
                         </div>
                         <p className='p-6'>2016 LAMBORGHINI IS 200T FSPORT Electric Drive. · Drive Four electric motors · Fuel Battery · Output 552 kw / 750 PS · Top speed 250 km/h / 155 mph · Range 250 km / 155 ...</p>
+                        <button className='w-1/3 bg-[#FF5400] hover:bg-[#FF4400] text-white rounded-md py-2'>LEARN MORE</button>
                     </div>
                 </div>
                 <div>
@@ -59,6 +63,7 @@ const Banner = () => {
                             <p>MSRP <span className='text-xl text-orange-500'>$221,580*</span></p>
                         </div>
                         <p className='p-6'>Mercedes-Benz SLS AMG Coupé Electric Drive. · Drive Four electric motors · Fuel Battery · Output 552 kw / 750 PS · Top speed 250 km/h / 155 mph · Range 250 km / 155 ...</p>
+                        <button className='w-1/3 bg-[#FF5400] hover:bg-[#FF4400] text-white rounded-md py-2'>LEARN MORE</button>
                     </div>
                 </div>
             </Carousel>

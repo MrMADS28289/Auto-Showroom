@@ -1,4 +1,4 @@
-AUTO SHOWROOM ....
+# AUTO SHOWROOM ....
 
 [GO TO LIVE WEBSITE](https://mads-auto-showroom.web.app/).
 
@@ -10,3 +10,7 @@ AUTO SHOWROOM ....
 * You can create your account.
 * You can add your own products.
 * You can see your added products.
+
+
+### Description
+* This is a cars diller website. You can buy or sell cars. you can login with facebook, Google or email password. Can you can see all inventory. You can manage your inventory , like edit delete etc.
