@@ -29,17 +29,18 @@ const Login = () => {
         fetch('http://localhost:5000/login', {
             method: 'POST',
             body: JSON.stringify({
-                email: user.user.email || user1.user.email || user2.user.email
+                email: user?.user?.email || user1?.user?.email || user2?.user?.email
             }),
             headers: {
                 'Content-type': 'application/json',
             },
         })
             .then(res => res.json())
-            .then(data => console.log(data));
-        toast.success('Welcome To Aouto Showroom');
-        navigate(from, { replace: true });
-        // console.log();
+            .then(data => {
+                localStorage.setItem("accessToken", data?.token)
+                toast.success('Welcome To Aouto Showroom');
+                navigate(from, { replace: true });
+            });
     }
 
     const handleLoginWithEmailPassword = (e) => {
