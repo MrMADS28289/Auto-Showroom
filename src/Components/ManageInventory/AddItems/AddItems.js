@@ -24,12 +24,13 @@ const AddItems = () => {
         fetch('https://auto-shoroom.herokuapp.com/inventory', {
             method: 'POST',
             headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 'Content-type': 'application/json',
             },
             body: JSON.stringify(car),
         })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+            .then((res) => res.json())
+            .then((data) => console.log(data));
 
         e.target.reset();
         toast.success('Item Added');
@@ -40,7 +41,7 @@ const AddItems = () => {
             <form onSubmit={handlePostInventory} className='flex flex-col bg-[#151515] mt-10 p-6 rounded-2xl'>
 
                 <label className='text-white' htmlFor="Nme">Name</label>
-                <input className='rounded-3xl p-2 my-4' type="Name" name='Name' re required />
+                <input className='rounded-3xl p-2 my-4' type="Name" name='Name' required />
 
                 <label className='text-white' htmlFor="SupplierName">Supplier Name</label>
                 <input className='rounded-3xl p-2 my-4' name='suppliername' type='text' required />
