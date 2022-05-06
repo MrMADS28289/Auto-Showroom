@@ -6,7 +6,7 @@ const useCar = (limit, pageNumber) => {
     const [pageCount, setPageCount] = useState(1);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cars?limit=${limit}&pageNumber=${pageNumber}`)
+        fetch(`https://auto-shoroom.herokuapp.com/cars?limit=${limit}&pageNumber=${pageNumber}`)
             .then(res => res.json())
             .then(data => {
                 setCars(data.cars)
