@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
-import useCar from '../Hook/useCar/useCar';
+import React, { useEffect, useState } from 'react';
 import Car from './Car/Car';
 
 const Inventory = () => {
 
+    const [cars, setCars] = useState([]);
     const [page, setPage] = useState(0);
     const [limit, setLimit] = useState(5);
-    const [cars] = useCar(limit, page);
+    const [pageCount, setPageCount] = useState(0);
+
+    useEffect(() => {
+        fetch(`https://auto-shoroom.herokuapp.com/cars?limit=${limit}&pageNumber=${page}`)
+            .then(res => res.json())
+            .then(data => {
+                setCars(data.cars)
+                setPageCount(data.count / limit);
+            });
+    }, [limit, page])
 
     return (
         <div className='flex flex-col bg-gray-300 justify-center items-center'>

@@ -14,7 +14,6 @@ const MyInventory = () => {
 
     useEffect(() => {
         const url = `https://auto-shoroom.herokuapp.com/myinventory?email=${user.email}`;
-        console.log(url);
         fetch(url, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

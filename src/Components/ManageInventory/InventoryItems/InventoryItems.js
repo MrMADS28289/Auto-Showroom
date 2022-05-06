@@ -11,7 +11,7 @@ const InventoryItems = () => {
     useEffect(() => {
         fetch('https://auto-shoroom.herokuapp.com/cars')
             .then(res => res.json())
-            .then(data => setCars(data));
+            .then(data => setCars(data.cars));
     }, [refresh])
 
     const handleDeleteCar = (id) => {
