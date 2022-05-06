@@ -25,7 +25,7 @@ const Login = () => {
     if (loading || loading1 || loading2 || sending) {
         return <Loading />
     }
-    if (user || user1 || user2) {
+    if (user?.user?.email || user1?.user?.email || user2?.user?.email) {
         fetch('https://auto-shoroom.herokuapp.com/login', {
             method: 'POST',
             body: JSON.stringify({

@@ -6,14 +6,14 @@ const Inventory = () => {
     const [cars, setCars] = useState([]);
     const [page, setPage] = useState(0);
     const [limit, setLimit] = useState(5);
-    const [pageCount, setPageCount] = useState(0);
+    // const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {
         fetch(`https://auto-shoroom.herokuapp.com/cars?limit=${limit}&pageNumber=${page}`)
             .then(res => res.json())
             .then(data => {
                 setCars(data.cars)
-                setPageCount(data.count / limit);
+                // setPageCount(data.count / limit);
             });
     }, [limit, page])
 

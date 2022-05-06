@@ -14,3 +14,17 @@
 
 ### Description
 * This is a cars diller website. You can buy or sell cars. you can login with facebook, Google or email password. Can you can see all inventory. You can manage your inventory , like edit delete etc.
+
+#### What technology or assets I have used for building this website.
+* React.js
+* JSX
+* Fontawesome
+* heroicon
+* node js 
+* Tailwind
+* mongodb
+* toast
+* Express
+* donenv
+* firebase
+* Heroku
