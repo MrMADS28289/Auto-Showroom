@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react';
 
-const useCar = () => {
+const useCar = (limit, pageNumber) => {
 
     const [cars, setCars] = useState([]);
+    const [pageCount, setPageCount] = useState(1);
 
     useEffect(() => {
-        fetch('https://auto-shoroom.herokuapp.com/cars')
+        fetch(`http://localhost:5000/cars?limit=${limit}&pageNumber=${pageNumber}`)
             .then(res => res.json())
-            .then(data => setCars(data));
-    }, [])
+            .then(data => {
+                setCars(data.cars)
+                setPageCount(data.count / limit);
+            });
+    }, [limit, pageNumber])
 
-    return [cars, setCars];
+    return [cars, pageCount];
 };
 
 export default useCar;

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useCar from '../Hook/useCar/useCar';
 import Car from './Car/Car';
 
 const Inventory = () => {
 
-    const [cars] = useCar();
+    const [page, setPage] = useState(0);
+    const [limit, setLimit] = useState(5);
+    const [cars] = useCar(limit, page);
 
     return (
         <div className='flex flex-col bg-gray-300 justify-center items-center'>
@@ -19,6 +21,18 @@ const Inventory = () => {
                 {
                     cars.map(car => <Car key={car._id} car={car} />)
                 }
+            </div>
+            <div className='flex'>
+                {
+                    [...Array(10).keys()].map(number => <button onClick={() => setPage(number)} key={number} className={`border-2 border-black px-2 m-2 ${page === number ? 'bg-[#FF5400] text-white' : ''}`}>{number + 1}</button>)
+                }
+                <select defaultValue={limit} className='bg-gray-300 border-2 border-black' onChange={(e) => setLimit(e.target.value)}>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
             </div>
         </div>
     );
