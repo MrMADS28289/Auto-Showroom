@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blogs = () => {
     return (
         <div>
+            <Helmet>
+                <title>Blog - Auto Showroom</title>
+            </Helmet>
             <h1 className='text-3xl text-center text-[#FF5400] my-9'>Blogs</h1>
             <div className='w-2/3 mx-auto my-10 p-6 bg-gray-300'>
                 <h3 className='text-xl my-2'>Difference between javascript and nodejs.</h3>

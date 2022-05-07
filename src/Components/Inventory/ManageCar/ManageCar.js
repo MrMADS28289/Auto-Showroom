@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -74,6 +75,9 @@ const ManageCar = () => {
 
     return (
         <div className='grid md:grid-cols-2 w-[50%] mx-auto bg-gray-100 my-10 border-2 shadow-md'>
+            <Helmet>
+                <title>Stock - Auto Showroom</title>
+            </Helmet>
             <div>
                 <img className='w-full h-full' src={car.image} alt="" />
             </div>

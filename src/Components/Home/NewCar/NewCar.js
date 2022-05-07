@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 const NewCar = () => {
 
     const newCars = [
-        { name: 'FORD ESCAPE 2019', price: '$50 350MSRP: $50 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/Tvq5DK5/car3.jpg' },
-        { name: 'FORD ESCAPE 2021', price: '$50 350MSRP: $49 300', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2021', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/2d9XH4j/car7.jpg' },
-        { name: 'CHEVROLET CAMARO 2018', price: '$58 000MSRP: $60 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/sRVp9Nj/car2.jpg' },
-        { name: 'FORD ESCAPE 2019', price: '$50 350MSRP: $50 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/Tvq5DK5/car3.jpg' },
-        { name: 'FORD ESCAPE 2021', price: '$50 350MSRP: $49 300', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2021', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/2d9XH4j/car7.jpg' },
-        { name: 'CHEVROLET CAMARO 2018', price: '$58 000MSRP: $60 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/sRVp9Nj/car2.jpg' },
+        { id: 1, name: 'FORD ESCAPE 2019', price: '$50 350MSRP: $50 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/Tvq5DK5/car3.jpg' },
+        { id: 2, name: 'FORD ESCAPE 2021', price: '$50 350MSRP: $49 300', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2021', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/2d9XH4j/car7.jpg' },
+        { id: 3, name: 'CHEVROLET CAMARO 2018', price: '$58 000MSRP: $60 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/sRVp9Nj/car2.jpg' },
+        { id: 4, name: 'FORD ESCAPE 2019', price: '$50 350MSRP: $50 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/Tvq5DK5/car3.jpg' },
+        { id: 5, name: 'FORD ESCAPE 2021', price: '$50 350MSRP: $49 300', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2021', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/2d9XH4j/car7.jpg' },
+        { id: 6, name: 'CHEVROLET CAMARO 2018', price: '$58 000MSRP: $60 000', description: 'Mini has broken tradition by ditching its torque converter automatic gearbox for', releaseDate: '2019', rp: '1500', fut: 'Auto', img: 'https://i.ibb.co/sRVp9Nj/car2.jpg' },
     ];
     const [width, setWidth] = useState();
     const carousel = useRef();
@@ -30,7 +30,7 @@ const NewCar = () => {
                     {
                         newCars.map((car) => {
                             return (
-                                <motion.div key={car._id} className='w-100 h-100 mx-5 cursor-pointer pointer-events-none'>
+                                <motion.div key={car.id} className='w-100 h-100 mx-5 cursor-pointer pointer-events-none'>
                                     <div className='w-[300px] bg-white mb-3  ml-10 md:ml-0'>
                                         <img className='w-[300px] h-[200px] hover:opacity-70 hover:translate-x-6' src={car.img} alt="" />
                                         <div className='p-4'>

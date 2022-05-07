@@ -6,6 +6,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading/Loading';
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -53,6 +54,9 @@ const Login = () => {
 
     return (
         <div className='bg-login-style pb-10'>
+            <Helmet>
+                <title>Home - Auto Showroom</title>
+            </Helmet>
             <h3 className='text-gray-500 pt-5 text-center'>New to Auto Showroom?</h3>
             <div className='flex mt-4 mb-9 items-center justify-center'>
                 <button onClick={() => navigate('/regester')} className='font-bold  flex justify-center items-center text-[#FF5400] mx-4 text-3xl'><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-6" viewBox="0 0 20 20" fill="currentColor">
@@ -64,7 +68,7 @@ const Login = () => {
                 </div>
             </div>
             <div className='w-full md:w-2/3 mx-auto border-2 bg-gray-900 opacity-80 border-[#FF5400] p-11 rounded-md'>
-                <form onSubmit={handleLoginWithEmailPassword} className='flex flex-col'>
+                <form onSubmit={handleLoginWithEmailPassword} className='flex flex-col text-white'>
                     <label className='text-[#FF5400]' htmlFor="Email">Email</label>
                     <input onChange={(e) => setEmail(e.target.value)} className='border-0 border-b-2 bg-transparent border-[#FF5400] my-4' type="email" name='email' />
                     <label className='text-[#FF5400]' htmlFor="Password">Password</label>

@@ -43,7 +43,7 @@ const MyInventory = () => {
                 cars?.length ?
                     cars.map(car => <Car key={car._id} car={car} />)
                     :
-                    <p className='text-red-600 text-4xl text-center my-10 w-full'>Someting is wrong!</p>
+                    <p className='text-red-600 text-4xl text-center my-10 w-full'>You have to add an Inventory!</p>
             }
         </div>
     );

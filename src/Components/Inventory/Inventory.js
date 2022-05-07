@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Car from './Car/Car';
 
 const Inventory = () => {
 
     const [cars, setCars] = useState([]);
     const [page, setPage] = useState(0);
-    const [limit, setLimit] = useState(5);
+    const [limit, setLimit] = useState(6);
     // const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {
@@ -19,6 +20,9 @@ const Inventory = () => {
 
     return (
         <div className='flex flex-col bg-gray-300 justify-center items-center'>
+            <Helmet>
+                <title>Inventory - Auto Showroom</title>
+            </Helmet>
             <div className='flex bg-login-style w-[100vw] py-10 items-center justify-center'>
                 <h1 className='font-bold  flex justify-center items-center text-[#FF5400] mx-4 text-3xl'>INVENTORY</h1>
                 <div>
@@ -36,7 +40,7 @@ const Inventory = () => {
                     [...Array(10).keys()].map(number => <button onClick={() => setPage(number)} key={number} className={`border-2 border-black px-2 m-2 ${page === number ? 'bg-[#FF5400] text-white' : ''}`}>{number + 1}</button>)
                 }
                 <select defaultValue={limit} className='bg-gray-300 border-2 border-black' onChange={(e) => setLimit(e.target.value)}>
-                    <option value="5">5</option>
+                    <option value="6">6</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
