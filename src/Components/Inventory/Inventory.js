@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import Loading from '../Shared/Loading/Loading';
 import Car from './Car/Car';
 
 const Inventory = () => {
@@ -31,8 +32,9 @@ const Inventory = () => {
                 </div>
             </div>
             <div className='grid md:grid-cols-2 justify-center'>
-                {
+                {cars.length ?
                     cars.map(car => <Car key={car._id} car={car} />)
+                    : <Loading />
                 }
             </div>
             <div className='flex'>

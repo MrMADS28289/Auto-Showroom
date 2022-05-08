@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loading from '../../Shared/Loading/Loading';
 
 const InventoryItems = () => {
 
@@ -66,7 +67,7 @@ const InventoryItems = () => {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                                    {
+                                    {cars.length ?
                                         cars.map(car => {
                                             return <tr key={car._id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                                                 <td className="p-4 w-4">
@@ -93,7 +94,7 @@ const InventoryItems = () => {
                                                     </button>
                                                 </td>
                                             </tr>
-                                        })
+                                        }) : <Loading />
                                     }
                                 </tbody>
                             </table>

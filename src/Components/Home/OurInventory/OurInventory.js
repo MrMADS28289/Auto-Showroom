@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCar from '../../Hook/useCar/useCar';
 import Car from '../../Inventory/Car/Car';
+import Loading from '../../Shared/Loading/Loading';
 
 const OurInventory = () => {
 
@@ -12,8 +13,10 @@ const OurInventory = () => {
         <div>
             <h1 className='text-2xl text-center my-6 font-bold'>Our Inventory</h1>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 justify-center'>
-                {
+                {cars.length ?
                     cars.slice(0, 3).map(car => <Car key={car._id} car={car} />)
+                    :
+                    <Loading></Loading>
                 }
             </div>
             <button
