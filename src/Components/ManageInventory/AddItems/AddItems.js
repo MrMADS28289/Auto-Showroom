@@ -37,7 +37,7 @@ const AddItems = () => {
     }
 
     return (
-        <div className='w-full md:w-9/12 mx-auto'>
+        <div className='w-9/12 mx-auto'>
             <form onSubmit={handlePostInventory} className='flex flex-col bg-[#151515] mt-10 p-6 rounded-2xl'>
 
                 <label className='text-white' htmlFor="Nme">Name</label>
