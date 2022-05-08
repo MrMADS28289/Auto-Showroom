@@ -37,7 +37,7 @@ const Inventory = () => {
             </div>
             <div className='flex'>
                 {
-                    [...Array(10).keys()].map(number => <button onClick={() => setPage(number)} key={number} className={`border-2 border-black px-2 m-2 ${page === number ? 'bg-[#FF5400] text-white' : ''}`}>{number + 1}</button>)
+                    [...Array(5).keys()].map(number => <button onClick={() => setPage(number)} key={number} className={`border-2 border-black px-2 m-2 ${page === number ? 'bg-[#FF5400] text-white' : ''}`}>{number + 1}</button>)
                 }
                 <select defaultValue={limit} className='bg-gray-300 border-2 border-black' onChange={(e) => setLimit(e.target.value)}>
                     <option value="6">6</option>
